@@ -1,0 +1,9 @@
+name: probe
+on: [push, pull_request]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fail when fail.txt exists
+        run: test ! -f fail.txt
